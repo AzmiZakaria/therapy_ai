@@ -7,6 +7,7 @@ const ChatPage = ({navigation}) => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
   const [isLogoutVisible, setIsLogoutVisible] = useState(false);
+  const [isclear, setIsclear] = useState(false);
   const [iconScale] = useState(new Animated.Value(1));
   // State to control the visibility of the logout text
   const handleSendMessage = () => {
@@ -36,7 +37,8 @@ const ChatPage = ({navigation}) => {
     </View>
   );
   const handleIconPress = () => {
-    setIsLogoutVisible(!isLogoutVisible); // Toggle the visibility of the logout text
+    setIsLogoutVisible(!isLogoutVisible); 
+    setIsclear(!isclear)// Toggle the visibility of the logout text
   };
 
   const animateIcon = () => {
@@ -44,6 +46,10 @@ const ChatPage = ({navigation}) => {
       Animated.timing(iconScale, { toValue: 0.8, duration: 100, useNativeDriver: true }),
       Animated.timing(iconScale, { toValue: 1, duration: 100, useNativeDriver: true }),
     ]).start();
+  };
+
+  const clearData = () => {
+    setMessages([]); // Set the data state to an empty array to clear the data
   };
 
   return (
@@ -59,6 +65,11 @@ const ChatPage = ({navigation}) => {
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       )}
+      {isclear && 
+      <TouchableOpacity style={styles.clear} onPress={clearData}>
+        <Text style={styles.logoutText}>clear</Text>
+      </TouchableOpacity>}
+      
     <FlatList
         data={messages}
         renderItem={renderItem}
@@ -143,6 +154,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255,0)', // Transparent white background
     width: 100,
     // marginLeft: 90,
+  },
+  clear:{
+    position: 'absolute',
+    top: 15, // Adjust the position as needed
+    right: 80, // Adjust the position as needed
+    padding: 15,
+    backgroundColor: 'rgba(255, 255, 255,0)', // Transparent white background
+    width: 100,
   },
   logoutText: {
     textDecorationLine: 'underline',
