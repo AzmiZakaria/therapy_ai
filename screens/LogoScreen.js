@@ -15,7 +15,7 @@ const LogoScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/logosbg.png')} style={styles.logo} />
+      <Image source={require('../assets/logosbg.png')} style={styles.logo} />
     </View>
   );
 }
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#067fd0',
   },
   logo: {
-    width: '100%', // Make the image take up the full width of its container
+    width: '80%', // Make the image take up the full width of its container
     height: undefined, // Automatically calculate the height based on the aspect ratio
     aspectRatio: 1, // Maintain the aspect ratio to prevent distortion
     margin: 20,

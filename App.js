@@ -2,10 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LogoScreen from './LogoScreen';
-import CreateAccountScreen from './CreateAccount';
-import SignInScreen from './SignInScreen';
-import ChatPage from './Chat';
+import LogoScreen from './screens/LogoScreen';
+import CreateAccountScreen from './screens/CreateAccount';
+import SignInScreen from './screens/SignInScreen';
+import ChatPage from './screens/Chat';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Stack = createStackNavigator();
 
 export default function App() {

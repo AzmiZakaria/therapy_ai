@@ -61,12 +61,12 @@ const ChatPage = ({navigation}) => {
             </TouchableOpacity>
         </View>            
         {isLogoutVisible && (
-        <TouchableOpacity style={styles.logoutOption} onPress={()=>navigation.navigate("SignIn")}>
+        <TouchableOpacity style={styles.logoutOption} onPress={()=>navigation.replace("SignIn")}>
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       )}
       {isclear && 
-      <TouchableOpacity style={styles.clear} onPress={clearData}>
+      <TouchableOpacity style={styles.clearOption} onPress={clearData}>
         <Text style={styles.logoutText}>clear</Text>
       </TouchableOpacity>}
       
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 8,
-    paddingRight:8
+    paddingHorizontal:8
   },
   input: {
     flex: 1,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   userMessage: {
     alignSelf: 'flex-end',
-    backgroundColor: '#DCF8C6',
+    backgroundColor: '#6EB5FF',
     padding: 8,
     borderRadius: 8,
     marginBottom: 8,
@@ -148,24 +148,24 @@ const styles = StyleSheet.create({
   },
   logoutOption: {
     position: 'absolute',
-    top: 15, // Adjust the position as needed
+    top: 13, // Adjust the position as needed
     right: 30, // Adjust the position as needed
     padding: 15,
     backgroundColor: 'rgba(255, 255, 255,0)', // Transparent white background
     width: 100,
     // marginLeft: 90,
   },
-  clear:{
+  clearOption:{
     position: 'absolute',
-    top: 15, // Adjust the position as needed
-    right: 80, // Adjust the position as needed
+    top: 13, // Adjust the position as needed
+    right: 90, // Adjust the position as needed
     padding: 15,
     backgroundColor: 'rgba(255, 255, 255,0)', // Transparent white background
     width: 100,
   },
   logoutText: {
     textDecorationLine: 'underline',
-    fontSize: 16,
+    fontSize: 18,
     color: '#000',
   },
 });
